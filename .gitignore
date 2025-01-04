@@ -1,0 +1,77 @@
+# Maven specific
+target/
+!.mvn/wrapper/maven-wrapper.jar
+**/pom.xml.tag
+**/pom.xml.releaseBackup
+**/pom.xml.versionsBackup
+**/pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+
+# Eclipse specific
+.classpath
+.project
+.settings/
+.springBeans
+.sts4-cache
+
+# IntelliJ IDEA specific
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# NetBeans specific
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+/build/
+
+# Visual Studio Code specific
+.vscode/
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Logs and temp files
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+*~$
+
+# Compiled class files
+*.class
+
+# Generated files
+*.jar
+*.war
+*.ear
+
+# Lombok config
+lombok.config
+
+# Test result directories
+/test-output/
+surefire-reports/
+
+# Build directories
+build/
+bin/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# Common generated files
+*.out
+*.generated
+generated/
+
+# HELP.md
+HELP.md
