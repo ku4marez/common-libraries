@@ -57,14 +57,6 @@
 				<artifactId>maven-jar-plugin</artifactId>
 				<version>3.2.2</version>
 			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.11.0</version> <!-- Latest version supporting Java 21 -->
-				<configuration>
-					<release>21</release>
-				</configuration>
-			</plugin>
 		</plugins>
 	</build>
 </project>
