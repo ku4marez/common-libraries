@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 
 import java.util.Base64;
 import java.util.Date;
+import java.util.List;
 
 @AllArgsConstructor
 public class JwtUtil {
@@ -15,9 +16,10 @@ public class JwtUtil {
     private final long accessTokenExpirationTime;
     private final long refreshTokenExpirationTime;
 
-    public String generateToken(String username) {
+    public String generateToken(String username, List<String> roles) {
         return Jwts.builder()
                 .setSubject(username)
+                .claim("roles", roles)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + accessTokenExpirationTime))
                 .signWith(SignatureAlgorithm.HS256, Base64.getDecoder().decode(secretKey))
