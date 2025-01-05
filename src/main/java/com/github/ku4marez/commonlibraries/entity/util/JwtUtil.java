@@ -3,23 +3,17 @@ package com.github.ku4marez.commonlibraries.entity.util;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
+import lombok.AllArgsConstructor;
 
 import java.util.Base64;
 import java.util.Date;
 
-@Component
+@AllArgsConstructor
 public class JwtUtil {
 
-    @Value("${jwt.secret}")
-    private String secretKey;
-
-    @Value("${jwt.expiration-time}")
-    private long accessTokenExpirationTime;
-
-    @Value("${jwt.refresh-token-expiration-time}")
-    private long refreshTokenExpirationTime;
+    private final String secretKey;
+    private final long accessTokenExpirationTime;
+    private final long refreshTokenExpirationTime;
 
     public String generateToken(String username) {
         return Jwts.builder()
