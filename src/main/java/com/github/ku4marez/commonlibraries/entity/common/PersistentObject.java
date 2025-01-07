@@ -1,4 +1,4 @@
-package com.github.ku4marez.commonlibraries.entity.entity.common;
+package com.github.ku4marez.commonlibraries.entity.common;
 
 import lombok.Getter;
 import lombok.Setter;

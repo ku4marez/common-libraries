@@ -1,4 +1,4 @@
-package com.github.ku4marez.commonlibraries.entity.dto.request;
+package com.github.ku4marez.commonlibraries.dto.request;
 
 import lombok.Builder;
 

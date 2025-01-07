@@ -1,4 +1,4 @@
-package com.github.ku4marez.commonlibraries.entity.util;
+package com.github.ku4marez.commonlibraries.util;
 
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;

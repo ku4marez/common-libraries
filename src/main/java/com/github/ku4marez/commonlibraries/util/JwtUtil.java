@@ -1,4 +1,4 @@
-package com.github.ku4marez.commonlibraries.entity.util;
+package com.github.ku4marez.commonlibraries.util;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

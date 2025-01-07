@@ -7,12 +7,12 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.1.4</version>
-		<relativePath />
+		<relativePath/>
 	</parent>
 
 	<groupId>com.github.ku4marez</groupId>
 	<artifactId>common-libraries</artifactId>
-	<version>1.0.5</version>
+	<version>1.0.6</version>
 	<packaging>jar</packaging>
 	<name>common-libraries</name>
 	<description>Common libraries for microservices</description>
@@ -23,9 +23,10 @@
 		<spring.data.commons.version>3.1.4</spring.data.commons.version>
 		<jjwt.version>0.11.2</jjwt.version>
 		<maven.jar.plugin.version>3.2.2</maven.jar.plugin.version>
+		<slf4j.version>2.0.9</slf4j.version>
+		<logback.version>1.4.11</logback.version>
 	</properties>
 
-	<!-- Distribution Management Section -->
 	<distributionManagement>
 		<repository>
 			<id>github</id>
@@ -71,11 +72,30 @@
 			<artifactId>spring-data-commons</artifactId>
 			<version>${spring.data.commons.version}</version>
 		</dependency>
+
+		<!-- Kafka -->
+		<dependency>
+			<groupId>org.springframework.kafka</groupId>
+			<artifactId>spring-kafka</artifactId>
+		</dependency>
+
+		<!-- SLF4J API -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+
+		<!-- Logback Implementation -->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
 	</dependencies>
 
 	<build>
 		<plugins>
-			<!-- Maven JAR Plugin to package as a library -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>

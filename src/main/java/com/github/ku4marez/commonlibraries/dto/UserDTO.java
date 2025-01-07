@@ -1,7 +1,7 @@
-package com.github.ku4marez.commonlibraries.entity.dto;
+package com.github.ku4marez.commonlibraries.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.github.ku4marez.commonlibraries.entity.entity.enums.Role;
+import com.github.ku4marez.commonlibraries.entity.enums.Role;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Builder;

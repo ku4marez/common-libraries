@@ -1,4 +1,4 @@
-package com.github.ku4marez.commonlibraries.entity.exception;
+package com.github.ku4marez.commonlibraries.exception;
 
 import lombok.Getter;
 
