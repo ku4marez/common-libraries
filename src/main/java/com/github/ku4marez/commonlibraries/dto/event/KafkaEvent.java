@@ -1,4 +1,4 @@
-package com.github.ku4marez.commonlibraries.dto;
+package com.github.ku4marez.commonlibraries.dto.event;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
