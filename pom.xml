@@ -12,7 +12,7 @@
 
 	<groupId>com.github.ku4marez</groupId>
 	<artifactId>common-libraries</artifactId>
-	<version>1.1.0</version>
+	<version>1.1.1</version>
 	<packaging>jar</packaging>
 	<name>common-libraries</name>
 	<description>Common libraries for microservices</description>
