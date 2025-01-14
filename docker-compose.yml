@@ -37,7 +37,7 @@ services:
     image: mongo:5.0
     container_name: appointment-notifications-mongodb
     ports:
-      - "27018:27017" # Appointment Notifications MongoDB
+      - "27019:27017" # Appointment Notifications MongoDB
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: password
@@ -46,6 +46,18 @@ services:
     profiles:
       - appointment-notifications
 
+  authentication-service-mongodb:
+    image: mongo:5.0
+    container_name: authentication-service-mongodb
+    ports:
+      - "27018:27017" # Expose MongoDB on localhost
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+    volumes:
+      - mongodb_data:/data/db # Persistent storage
+
 volumes:
   clinic_management_mongodb_data:
   appointment_notifications_mongodb_data:
+  authentication_service_mongodb_data:
