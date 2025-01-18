@@ -2,6 +2,7 @@ version: '3.8'
 services:
   zookeeper:
     image: confluentinc/cp-zookeeper:7.4.0
+    container_name: zookeeper
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
@@ -10,6 +11,7 @@ services:
 
   kafka:
     image: confluentinc/cp-kafka:7.4.0
+    container_name: kafka
     depends_on:
       - zookeeper
     environment:
@@ -59,7 +61,47 @@ services:
     profiles:
       - authentication-service
 
+  nginx:
+    image: nginx:latest
+    container_name: centralized-nginx
+    ports:
+      - "8083:80"
+    volumes:
+      - "../common-libraries/nginx:/etc/nginx/conf.d"
+
+  jenkins:
+    image: jenkins/jenkins:lts
+    container_name: jenkins
+    user: root
+    ports:
+      - "8084:8080"
+      - "50000:50000"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - jenkins_network
+
+  ngrok:
+    image: ngrok/ngrok:latest
+    container_name: ngrok
+    ports:
+      - "4040:4040"
+    environment:
+      NGROK_AUTHTOKEN: "24mfZNZ4EJVIEKrFHuoEbDeiATM_5yEJW1HiVmpxPqKTzFM7X"
+      NGROK_REGION: "eu"
+    command: http http://jenkins:8080
+    networks:
+      - jenkins_network
+    depends_on:
+      - jenkins
+
 volumes:
   clinic_management_mongodb_data:
   appointment_notifications_mongodb_data:
   authentication_service_mongodb_data:
+  jenkins_home:
+
+networks:
+  jenkins_network:
+    name: jenkins_network
