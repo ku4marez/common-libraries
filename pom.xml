@@ -5,7 +5,7 @@
 
 	<groupId>com.github.ku4marez</groupId>
 	<artifactId>common-libraries</artifactId>
-	<version>1.2.2</version>
+	<version>1.2.3</version>
 	<packaging>jar</packaging>
 	<name>common-libraries</name>
 	<description>Common libraries for microservices</description>
@@ -19,6 +19,7 @@
 		<logback.version>1.4.11</logback.version>
 		<jackson.version>2.15.2</jackson.version>
 		<spring.data.commons.version>3.1.4</spring.data.commons.version>
+		<spring.webmvc.version>5.3.29</spring.webmvc.version>
 	</properties>
 
 	<distributionManagement>
@@ -34,6 +35,11 @@
 
 	<dependencyManagement>
 		<dependencies>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-webmvc</artifactId>
+				<version>${spring.webmvc.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>com.fasterxml.jackson.core</groupId>
 				<artifactId>jackson-annotations</artifactId>
@@ -90,6 +96,10 @@
 
 
 	<dependencies>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-commons</artifactId>
