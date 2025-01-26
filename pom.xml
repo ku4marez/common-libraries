@@ -3,23 +3,18 @@
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.1.4</version>
-		<relativePath/>
-	</parent>
-
 	<groupId>com.github.ku4marez</groupId>
 	<artifactId>common-libraries</artifactId>
-	<version>1.1.6</version>
+	<version>1.1.7</version>
 	<packaging>jar</packaging>
 	<name>common-libraries</name>
 	<description>Common libraries for microservices</description>
 
 	<properties>
+		<java.version>21</java.version>
 		<jakarta.validation.version>3.0.2</jakarta.validation.version>
 		<spring.data.commons.version>3.1.4</spring.data.commons.version>
+		<kafka.version>3.1.4</kafka.version>
 		<jjwt.version>0.11.2</jjwt.version>
 		<maven.jar.plugin.version>3.2.2</maven.jar.plugin.version>
 		<slf4j.version>2.0.9</slf4j.version>
@@ -27,7 +22,6 @@
 	</properties>
 
 	<repositories>
-		<!-- Add Maven Central explicitly -->
 		<repository>
 			<id>central</id>
 			<url>https://repo.maven.apache.org/maven2</url>
@@ -64,6 +58,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			<version>${kafka.version}</version>
 		</dependency>
 
 		<!-- Validation -->
@@ -84,6 +79,7 @@
 		<dependency>
 			<groupId>org.springframework.kafka</groupId>
 			<artifactId>spring-kafka</artifactId>
+			<version>3.1.4</version>
 		</dependency>
 
 		<!-- SLF4J API -->
@@ -103,6 +99,15 @@
 
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
