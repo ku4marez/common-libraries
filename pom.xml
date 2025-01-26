@@ -12,7 +12,7 @@
 
 	<groupId>com.github.ku4marez</groupId>
 	<artifactId>common-libraries</artifactId>
-	<version>1.1.5</version>
+	<version>1.1.6</version>
 	<packaging>jar</packaging>
 	<name>common-libraries</name>
 	<description>Common libraries for microservices</description>
@@ -25,6 +25,14 @@
 		<slf4j.version>2.0.9</slf4j.version>
 		<logback.version>1.4.11</logback.version>
 	</properties>
+
+	<repositories>
+		<!-- Add Maven Central explicitly -->
+		<repository>
+			<id>central</id>
+			<url>https://repo.maven.apache.org/maven2</url>
+		</repository>
+	</repositories>
 
 	<distributionManagement>
 		<repository>
