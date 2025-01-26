@@ -67,7 +67,7 @@ services:
     ports:
       - "8083:80"
     volumes:
-      - "../common-libraries/nginx:/etc/nginx/conf.d"
+      - "../nginx:/etc/nginx/conf.d"
 
   jenkins:
     image: jenkins/jenkins:lts
