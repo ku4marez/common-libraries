@@ -82,9 +82,9 @@ services:
     networks:
       - jenkins_network
 
-  ngrok:
+  ngrok-jenkins:
     image: ngrok/ngrok:latest
-    container_name: ngrok
+    container_name: ngrok-jenkins
     ports:
       - "4040:4040"
     environment:
@@ -96,6 +96,20 @@ services:
     depends_on:
       - jenkins
 
+  ngrok-nexus:
+    image: ngrok/ngrok:latest
+    container_name: ngrok-nexus
+    ports:
+      - "4041:4040"
+    environment:
+      NGROK_AUTHTOKEN: "24mfZNZ4EJVIEKrFHuoEbDeiATM_5yEJW1HiVmpxPqKTzFM7X"
+      NGROK_REGION: "eu"
+    command: http http://nexus:8080
+    networks:
+      - nexus_network
+    depends_on:
+      - nexus
+
   nexus:
     image: sonatype/nexus3:latest
     container_name: nexus
@@ -106,7 +120,8 @@ services:
       - nexus-data:/nexus-data
     environment:
       - INSTALL4J_ADD_VM_PARAMS=-Xms512m -Xmx1024m -XX:MaxDirectMemorySize=1024m
-    restart: unless-stopped
+    networks:
+      - nexus_network
 
 volumes:
   clinic_management_mongodb_data:
@@ -118,3 +133,5 @@ volumes:
 networks:
   jenkins_network:
     name: jenkins_network
+  nexus_network:
+    name: nexus_network
