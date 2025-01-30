@@ -5,7 +5,7 @@
 
 	<groupId>com.github.ku4marez</groupId>
 	<artifactId>common-libraries</artifactId>
-	<version>1.2.4</version>
+	<version>1.2.5</version>
 	<packaging>jar</packaging>
 	<name>common-libraries</name>
 	<description>Common libraries for microservices</description>
@@ -24,13 +24,9 @@
 
 	<distributionManagement>
 		<repository>
-			<id>github</id>
-			<url>https://maven.pkg.github.com/ku4marez/common-libraries</url>
+			<id>nexus</id>
+			<url>http://localhost:8081/repository/common-libraries/</url>
 		</repository>
-		<snapshotRepository>
-			<id>github-snapshots</id>
-			<url>https://maven.pkg.github.com/ku4marez/common-libraries</url>
-		</snapshotRepository>
 	</distributionManagement>
 
 	<dependencyManagement>
