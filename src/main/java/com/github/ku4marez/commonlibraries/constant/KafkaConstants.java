@@ -10,5 +10,8 @@ public class KafkaConstants {
     public static final String PATIENT_CREATED_TOPIC = "patient.created";
     public static final String PATIENT_CREATED_EVENT = "PATIENT_CREATED";
 
+    public static final String TRIAL_CREATED_TOPIC = "trial.created";
+    public static final String TRIAL_CREATED_EVENT = "TRIAL_CREATED";
+
     public static final String NOTIFICATION_SENT_TOPIC = "notification.sent";
 }
