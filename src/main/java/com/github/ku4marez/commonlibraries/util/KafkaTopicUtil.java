@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.Properties;
+import java.util.Set;
 import java.util.concurrent.ExecutionException;
 
 public class KafkaTopicUtil {
@@ -24,9 +25,19 @@ public class KafkaTopicUtil {
 
     public void createTopics(List<NewTopic> topics) {
         try {
-            adminClient.createTopics(topics).all().get();
-            topics.forEach(topic -> logger.info("Topic '{}' created with {} partitions and {} replication factor",
-                    topic.name(), topic.numPartitions(), topic.replicationFactor()));
+            List<NewTopic> newTopics = topics.stream()
+                    .filter(topic -> !topicExists(topic.name()))
+                    .toList();
+
+            if (!newTopics.isEmpty()) {
+                adminClient.createTopics(newTopics).all().get();
+                newTopics.forEach(topic ->
+                        logger.info("Topic '{}' created with {} partitions and {} replication factor",
+                                topic.name(), topic.numPartitions(), topic.replicationFactor())
+                );
+            } else {
+                logger.info("No new topics were created. All topics already exist.");
+            }
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
             throw new KafkaTopicException("Topic creation was interrupted", e);
@@ -34,6 +45,7 @@ public class KafkaTopicUtil {
             throw new KafkaTopicException("Execution error during topic creation", e);
         }
     }
+
 
     public boolean topicExists(String topicName) {
         try {
